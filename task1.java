@@ -1,32 +1,35 @@
-// Task1
-// Заполните массив случайным числами и выведите максимальное, 
-// минимальное и среднее значение.
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
 
-// Для генерации случайного числа используйте метод Math.random(), 
-// который возвращает значение в промежутке [0, 300].
+public class Task1 {
 
-public class task1 {
+    // Даны два Deque представляющие два неотрицательных целых числа. Цифры хранятся
+    // в обратном порядке,
+    // и каждый из их узлов содержит одну цифру.
+    // Сложите два числа и верните сумму в виде связанного списка.
     public static void main(String[] args) {
+        Deque<Integer> d1 = new ArrayDeque<>(Arrays.asList(1, 2, 3));
+        Deque<Integer> d2 = new ArrayDeque<>(Arrays.asList(5, 9, 7));
+        Deque<Integer> sumD1D2 = sum(d1, d2);
+        System.out.println(sumD1D2);
 
-        int n = 100;
-        int[] array = new int[n];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 301);
+    }
+
+    public static Deque<Integer> sum(Deque<Integer> d1, Deque<Integer> d2) {
+        String sum = Integer.toString(DequeParseToInt(d1) + DequeParseToInt(d2));
+        Deque<Integer> d3 = new ArrayDeque<>();
+        for (int i = sum.length() - 1; i >= 0; i--) {
+            d3.addLast(Character.digit(sum.charAt(i), 10));
         }
+        return d3;
+    }
 
-        int max = array[0];
-        int min = array[0];
-        double avg = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            if (max < array[i])
-                max = array[i];
-            if (min > array[i])
-                min = array[i];
-            avg += array[i] / array.length;
+    public static int DequeParseToInt(Deque<Integer> d) {
+        String buffD = "";
+        while (d.peekLast() != null) {
+            buffD += Integer.toString(d.pollLast());
         }
-        System.out.println("max = " + max);
-        System.out.println("min = " + min);
-        System.out.println("avg = " + avg);
+        return Integer.parseInt(buffD);
     }
 }
