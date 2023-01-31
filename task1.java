@@ -17,7 +17,9 @@ public class Task1 {
     }
 
     public static Deque<Integer> sum(Deque<Integer> d1, Deque<Integer> d2) {
-        String sum = Integer.toString(DequeParseToInt(d1) + DequeParseToInt(d2));
+        String sum = Integer.toString(DequeParsetoInt(d1) + DequeParsetoInt(d2));// если создать такой же метод но с
+                                                                                 // умножением позволит решить задание
+                                                                                 // Homework
         Deque<Integer> d3 = new ArrayDeque<>();
         for (int i = sum.length() - 1; i >= 0; i--) {
             d3.addLast(Character.digit(sum.charAt(i), 10));
@@ -25,7 +27,8 @@ public class Task1 {
         return d3;
     }
 
-    public static int DequeParseToInt(Deque<Integer> d) {
+    public static int DequeParsetoInt(Deque<Integer> d) {
+        // будет работать с отрицательными числами в том числе
         String buffD = "";
         while (d.peekLast() != null) {
             buffD += Integer.toString(d.pollLast());
