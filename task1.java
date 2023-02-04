@@ -1,32 +1,13 @@
-// Task1
-// Заполните массив случайным числами и выведите максимальное, 
-// минимальное и среднее значение.
+import java.util.List;
 
-// Для генерации случайного числа используйте метод Math.random(), 
-// который возвращает значение в промежутке [0, 300].
+public class Task1 {
 
-public class task1 {
+// Реализуйте структуру телефонной книги с помощью HashMap, учитывая, что 1 человек может иметь несколько телефонов.
+// Пусть дан список сотрудников:Иван Иванов (и остальные)
+// Написать программу, которая найдет и выведет повторяющиеся имена с количеством повторений.
+// Отсортировать по убыванию популярности.
+   
     public static void main(String[] args) {
 
-        int n = 100;
-        int[] array = new int[n];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 301);
-        }
-
-        int max = array[0];
-        int min = array[0];
-        double avg = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            if (max < array[i])
-                max = array[i];
-            if (min > array[i])
-                min = array[i];
-            avg += array[i] / array.length;
-        }
-        System.out.println("max = " + max);
-        System.out.println("min = " + min);
-        System.out.println("avg = " + avg);
     }
 }
